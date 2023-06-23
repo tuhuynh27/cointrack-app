@@ -24,10 +24,10 @@ const Main = () => {
 
             if (route.name === 'home') {
               iconName = focused
-                ? 'reader'
-                : 'reader-outline';
+                ? 'newspaper'
+                : 'newspaper-outline';
             } else if (route.name === 'chat') {
-              iconName = focused ? 'chatbubble' : 'chatbubble-outline';
+              iconName = focused ? 'chatbubbles' : 'chatbubbles-outline';
             } else if (route.name === 'profile') {
               iconName = focused ? 'person' : 'person-outline';
             }

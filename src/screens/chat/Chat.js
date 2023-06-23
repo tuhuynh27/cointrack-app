@@ -25,6 +25,15 @@ const ChatScreen = () => {
         id: generateUUID(), text: input, isYou: true,
       }])
       setInput('')
+
+      // Reply after 1s
+      setTimeout(() => {
+        setMessages(messages => [
+          ...messages, {
+            id: generateUUID(), text: `I don't know.`, isYou: false,
+          }
+        ])
+      }, 1000)
     }
   }
 
@@ -36,15 +45,11 @@ const ChatScreen = () => {
     )
   }
 
-  const handleSwipeDown = () => {
-    Keyboard.dismiss()
-  }
-
   return (
     <KeyboardAvoidingView
       style={styles.container}
       behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
-      keyboardVerticalOffset={Platform.OS === 'ios' ? 80 : 0}
+      keyboardVerticalOffset={Platform.OS === 'ios' ? 50 : 0}
     >
       <FlatList
         data={messages}
@@ -56,9 +61,11 @@ const ChatScreen = () => {
         <TextInput
           value={input}
           onChangeText={setInput}
-          onSubmitEditing={handleSend}
           placeholder="Type a message..."
           style={styles.input}
+          onSubmitEditing={handleSend}
+          returnKeyType="done"
+          blurOnSubmit={false}
         />
         <TouchableOpacity onPress={handleSend}>
           <Icon name={'send-outline'} size={25} color="#000"/>
@@ -94,12 +101,11 @@ const styles = StyleSheet.create({
   inputContainer: {
     flexDirection: 'row',
     alignItems: 'center',
-    gap: 10
+    gap: 10,
+    paddingVertical: 20,
   },
   input: {
     flex: 1,
-    borderRadius: 25,
-    marginRight: 10,
     fontSize: 16,
   },
 })
