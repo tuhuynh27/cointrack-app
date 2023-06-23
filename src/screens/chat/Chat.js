@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { FlatList, Keyboard, KeyboardAvoidingView, Platform, StyleSheet, Text, TextInput, View } from 'react-native'
+import { FlatList, Keyboard, KeyboardAvoidingView, Platform, StyleSheet, Text, TextInput, View, TouchableOpacity } from 'react-native'
 import Icon from 'react-native-vector-icons/Ionicons'
 
 // generate uuid function
@@ -60,7 +60,9 @@ const ChatScreen = () => {
           placeholder="Type a message..."
           style={styles.input}
         />
-        <Icon name={'send-outline'} size={25} color="#000" onPress={handleSend}/>
+        <TouchableOpacity onPress={handleSend}>
+          <Icon name={'send-outline'} size={25} color="#000"/>
+        </TouchableOpacity>
       </View>
     </KeyboardAvoidingView>
   )
@@ -69,6 +71,8 @@ const ChatScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: '#fff',
+    paddingHorizontal: 20,
   },
   messagesContainer: {
     flexGrow: 1,
@@ -96,6 +100,7 @@ const styles = StyleSheet.create({
     flex: 1,
     borderRadius: 25,
     marginRight: 10,
+    fontSize: 16,
   },
 })
 

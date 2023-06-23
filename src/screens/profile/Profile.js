@@ -1,4 +1,4 @@
-import { Image, StyleSheet, Text, View } from 'react-native'
+import { Image, StyleSheet, Text, View, TouchableOpacity } from 'react-native'
 import Ionicons from 'react-native-vector-icons/Ionicons'
 
 export default function ProfileScreen() {
@@ -14,18 +14,18 @@ export default function ProfileScreen() {
         <Text style={styles.headerSecondaryText}>tu@keva.dev</Text>
       </View>
       <View style={styles.menu}>
-        <View style={styles.menuItem}>
+        <TouchableOpacity style={styles.menuItem}>
           <Ionicons name="person-outline" size={24} color="black"/>
           <Text style={styles.menuText}>Profile</Text>
-        </View>
-        <View style={styles.menuItem}>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.menuItem}>
           <Ionicons name="log-out-outline" size={24} color="black"/>
           <Text style={styles.menuText}>Logout</Text>
-        </View>
-        <View style={styles.menuItem}>
+        </TouchableOpacity>
+        <TouchableOpacity style={styles.menuItem}>
           <Ionicons name="help-circle-outline" size={24} color="black"/>
           <Text style={styles.menuText}>Help</Text>
-        </View>
+        </TouchableOpacity>
       </View>
     </View>
   )
@@ -34,6 +34,8 @@ export default function ProfileScreen() {
 const styles = StyleSheet.create({
   screen: {
     flex: 1,
+    backgroundColor: '#fff',
+    paddingHorizontal: 20,
   },
   avatar: {
     alignItems: 'center',

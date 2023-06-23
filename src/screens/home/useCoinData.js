@@ -38,6 +38,9 @@ function reducer(state, action) {
 }
 
 function init(coins) {
+  if (savedObj.data) {
+    return savedObj.data
+  }
   return coins.map(e => ({
     ...e,
     price: 0,
@@ -48,9 +51,17 @@ function init(coins) {
   }))
 }
 
+const savedObj = {
+  data: null
+}
+
 export default function useCoinData(coins = [], limit = 0) {
   const [state, dispatch] = useReducer(reducer, coins, init)
   const [isLoaded, setIsLoaded] = useState(false)
+
+  useEffect(() => {
+    savedObj.data = state;
+  }, [state]);
 
   const loadMeta = useCallback(
     async (controller) => {
