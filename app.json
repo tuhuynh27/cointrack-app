@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "rn-app",
-    "slug": "rn-app",
+    "slug": "coin-track",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -15,7 +15,8 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.tuhuynh27.cointrack"
     },
     "android": {
       "adaptiveIcon": {
@@ -25,6 +26,18 @@
     },
     "web": {
       "favicon": "./assets/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "4291fe0f-3953-48cb-9dd6-928f9b15e85e"
+      }
+    },
+    "owner": "tuhuynh27",
+    "runtimeVersion": {
+      "policy": "sdkVersion"
+    },
+    "updates": {
+      "url": "https://u.expo.dev/4291fe0f-3953-48cb-9dd6-928f9b15e85e"
     }
   }
 }
